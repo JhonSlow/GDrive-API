@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Google Drive</title>
+    <meta charset='utf-8'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <script src='js/jquery.js'></script>
+
+</head>
+
+<body style="background-color: #77b2f7">
+
+<div class="container-fluid">
+    <div class="row">
+        <Div class="col">
+        <h1 style="color:white">GDrive REST API <img src="logo.png" width="60px" height="60px"/></h1>
+        </div>
+    </div>
+    <div class="row" id="hide" style="display: inline-block;">
+        <div class="col-4"><input type="file" id="fine-uploader"></div>
+        <div class="col-4">
+            <input type="submit" onclick="myFile(document.getElementById('fine-uploader').files)"
+                                     value="Upload"/></div>
+        <div class="col-4"><label id="upload-success" style="display:none">Successfully Uploaded</label></div>
+    </div>
+    <h2 style="color:white">Files</h2>
+</div>
+<div class="container">
+<pre class="row" id="content">
+</pre>
+</div>
+
+<script src="js/index.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad();"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
+<div style="display: none;">
+    <div class="col-xs-8 myrow" id="con"></div>
+    <button class="col-xs-2 myrow" id="b" onclick="deleteFile(this.id);location.reload()">Delete</button>
+    <button class="col-xs-2 myrow" id="d" onclick="downloadFile(this.id.toString().substr(1))">Download</button>
+</div>
+</body>
+</html>
